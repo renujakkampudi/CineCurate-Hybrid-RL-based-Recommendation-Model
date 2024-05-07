@@ -1,0 +1,76 @@
+.sidebar {
+  height: calc(100vh - 100px);
+  width: 400px; /* Set this to your desired width */
+  flex: 0 0 400px; /* Set this to match the width if using flexbox */
+  flex-direction: column;
+  background: #525b56;
+  justify-content: center; /* Center vertically */
+  font-size: 1.2rem;
+  align-items: center; /* This will center-align the items horizontally */
+  justify-content: center;
+  padding: 20px;
+  padding-top: 150px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  width: 100%; /* Take the full width */
+}
+
+.sidebar-nav .active {
+  /* Add your styling for active link */
+  color: white; /* example */
+  font-weight: bold;
+}
+
+.sidebar-nav a {
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  width: 100%; /* Full width to match the parent's width */
+  text-align: center; /* Center the text */
+  color: #dca36e;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  margin: 0;
+  background-color: #dca36e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  /* width: 100%; Match the width of sidebar links */
+  text-align: center; /* Center the text */
+  margin-top: auto; /* Push the logout button to the bottom */
+  border-radius: 5px; /* Optional: adds rounded corners */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.sidebar li.active,
+.sidebar li:hover {
+  background-color: #e0e0e0;
+}
+
+.sidebar button {
+  padding: 10px;
+  width: 100%;
+  margin-top: 20px;
+  background-color: #dca36e;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,82 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.genre-page {
+  background-image: linear-gradient(
+    to right,
+    #040c0e,
+    #0c1517,
+    #111b1e,
+    #142226,
+    #17292e,
+    #17292e,
+    #17292e,
+    #17292e,
+    #142226,
+    #111b1e,
+    #0c1517,
+    #040c0e
+  );
+  color: #dca36e;
+}
+
+.genre-page h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #dca36e; /* Color of the title */
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 0;
+  text-transform: none;
+
+  /* Text glow effect */
+  text-shadow: 0 0 8px rgba(220, 163, 110, 0.5);
+}
+.movie-grid {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: repeat(4, 275px);
+  gap: 100px;
+  justify-content: center; /* This will center the grid items in the grid area */
+  /* padding: 20px; */
+}
+
+.movie-card {
+  width: 200px; /* Set the desired width of the card */
+  /* No fixed height here; it will be as tall as its content (image + title) */
+  text-align: center;
+  background-color: transparent; /* Assuming you don't want any background color */
+  overflow: hidden; /* Hides anything that goes outside the boundaries of the card */
+  /* margin-bottom: 20px; Optional: adds some space below each card */
+  display: flex; /* Enables flexbox layout */
+  flex-direction: column; /* Stacks children (image and title) vertically */
+  align-items: center; /* Aligns children in the center horizontally */
+}
+
+.movie-image {
+  width: 100%; /* Image takes up the full width of the card */
+  height: auto; /* Height is set automatically based on the width while keeping aspect ratio */
+  object-fit: cover; /* Ensures the image covers the area, clipping it if necessary */
+  /* No fixed height to allow the image to dictate its own height */
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-image {
+  transform: scale(1.05); /* Scale up image to 105% of its size */
+}
+
+.movie-title {
+  font-size: 1.25rem;
+  color: #dca36e; /* Set the color of the title */
+  /* Semi-transparent background for the title */
+  width: 100%; /* Title spans the full width of the card */
+  margin-top: 4px; /* Optional: Adjusts the position of the title closer to the image */
+  padding: 8px 0; /* Adds padding above and below the title text */
+
+  text-transform: none;
+}

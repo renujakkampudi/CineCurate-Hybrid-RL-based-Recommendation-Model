@@ -1,0 +1,102 @@
+.TitlePage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Aligns children (Title-name and Title-posters) on opposite ends */
+  height: 100vh;
+  padding: 0 5%; /* Adds some padding on the sides */
+  opacity: 1; /* Full opacity for the background */
+  background-size: cover; /* This will cover the entire area of the Title-container */
+  background-repeat: no-repeat; /* This will prevent the image from repeating */
+  background-position: center center;
+  position: relative;
+}
+
+.Title-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Black overlay with 50% opacity */
+  z-index: 1;
+}
+
+.Title-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This will space out your title and posters */
+  position: relative;
+  z-index: 2;
+}
+
+.Title-name {
+  /* Removed height to allow content to determine the size */
+  position: relative;
+  display: inline-block; /* Allows us to size width to content */
+  text-align: center; /* This will center the text inside the inline-block */
+}
+
+.Title-name h1 {
+  /* Apply font styling to both h1 elements */
+  display: block; /* Stack them on top of each other */
+  font-size: 12rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2; /* Adjust line height to ensure there is no overlap */
+  font-family: "Tac One";
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Position the second word */
+.Title-name h1:nth-child(2) {
+  margin-top: -5%; /* Adjust top margin to move "Curate" slightly up */
+  padding-left: 80%; /* Start "Curate" from the center of "Cine" */
+  transform: translateX(
+    -50%
+  ); /* Shift "Curate" back to align its start with the center */
+}
+
+.Title-posters {
+  max-width: 30%; /* Larger max-width for posters */
+  /* flex-grow: 1; Allows poster image to grow as needed */
+  padding-right: 30%;
+}
+
+.Title-posters img {
+  width: auto;
+  height: 60vh; /* Adjust height to make it sufficiently large and visible */
+  width: 60vh;
+  opacity: 1; /* Ensure the image is fully opaque */
+  position: relative;
+  z-index: 1;
+}
+
+.dancing-arrow {
+  position: absolute;
+  bottom: 30px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: dance 1.5s ease-in-out infinite;
+  color: #fff;
+}
+
+/* Keyframes for the dancing effect */
+@keyframes dance {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+}

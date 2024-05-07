@@ -1,0 +1,36 @@
+.home-movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between the cards */
+  padding: 20px; /* Padding around the grid */
+}
+
+.home-movie-card {
+  flex: 1 0 calc(33.333% - 40px); /* Flex grow, flex shrink, and base width */
+  background-color: rgba(204, 153, 255, 0.7); /* Slightly transparent purple */
+  color: black;
+  margin: 10px; /* Space between blocks */
+  padding: 20px; /* Padding inside the block */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+  border-radius: 10px; /* Rounded corners for cards */
+  height: 200px; /* Minimum height for consistency */
+  min-width: 250px;
+}
+
+.home-movie-card:hover {
+  transform: scale(1.05); /* Slightly enlarge block on hover */
+  background-color: rgba(101, 101, 195, 1); /* Change color on hover */
+}
+
+/* Ensure the title is always visible and styled correctly */
+.home-movie-card h3 {
+  color: white; /* Ensure text is white for visibility */
+  margin: 0; /* Remove default margins */
+}

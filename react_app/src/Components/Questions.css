@@ -1,0 +1,192 @@
+/* QuestionsPage.css */
+.questions-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right,
+    #040c0e,
+    #0c1517,
+    #111b1e,
+    #142226,
+    #17292e,
+    #17292e,
+    #17292e,
+    #17292e,
+    #142226,
+    #111b1e,
+    #0c1517,
+    #040c0e
+  ); /* Background color of the entire page */
+}
+
+.question-box {
+  background: #525b56;
+  color: #dca36e;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  max-width: 1000px; /* Adjust width as necessary */
+  margin: 40px auto;
+  height: 600px;
+  animation: fadeIn 1s ease-in-out;
+  border: 2px solid #525b56;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.question {
+  margin-bottom: 20px;
+  font-size: 1.5em; /* Adjust font size as necessary */
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 options per row */
+  gap: 10px;
+  justify-content: start;
+  align-items: start;
+}
+
+.options label {
+  display: block; /* Stack the options vertically */
+  margin-bottom: 10px; /* Space out the options */
+  opacity: 0; /* Start with options invisible */
+  animation: fadeIn 1s ease-in-out forwards; /* Apply the fadeIn effect and keep the state at the end of the animation */
+  animation-delay: 0.5s; /* Delay the start of the animation */
+}
+
+.option-item {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border: 2px solid #dca36e; /* Adjust to your theme color */
+  border-radius: 20px;
+  background-color: white;
+  color: #1c3238; /* Text color */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+}
+
+.option-item.selected {
+  background-color: #dca36e; /* Selected background color */
+  color: #1c3238; /* Selected text color */
+}
+
+.custom-option-container {
+  margin-top: 20px; /* Space from options */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+.custom-option-input {
+  width: 80%; /* Adjust as needed */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.add-option-button {
+  width: auto; /* Let the button size according to its content */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #204550; /* Adjust the color as necessary */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 500px;
+}
+
+.add-option-button:hover {
+  background-color: #204550;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.options input[type="text"],
+.options input[type="email"],
+.options label {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* Smooth transition for interactions */
+}
+
+.options input[type="text"]:focus,
+.options input[type="email"]:focus {
+  border-color: #ff4081; /* Highlight focus with your theme color */
+}
+
+.options input[type="checkbox"],
+.options input[type="radio"] {
+  margin-right: 10px; /* Space out the checkbox/radio from the label text */
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #007bff; /* Button color */
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker button color on hover */
+  transform: scale(1.05);
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .options {
+    width: 100%; /* Full width on small screens */
+    padding: 0 20px; /* Add some padding on the sides */
+  }
+
+  .question-box {
+    width: 90%; /* Reduce the width on smaller screens for padding */
+  }
+
+  /* Adjust the delay and animation duration on smaller screens if needed */
+  .options label {
+    animation-delay: 0.3s;
+  }
+}

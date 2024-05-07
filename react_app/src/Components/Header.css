@@ -1,0 +1,121 @@
+/* Main header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #525b56;
+  color: #dca36e;
+  font-family: sans-serif;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px; /* Smaller logo */
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.website-name {
+  font-size: 1.5em;
+  margin-right: 20px; /* Add spacing if needed */
+}
+
+/* Adjustments to navigation and alignment */
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  margin-left: 15px; /* Adjusted margin */
+}
+
+.nav-link img {
+  height: 30px; /* Smaller icons */
+  width: 30px; /* Keep square aspect ratio */
+}
+
+/* Search bar styles */
+.search-container {
+  position: relative;
+  margin-left: 20px;
+  flex-grow: 1; /* Allow the search bar to grow */
+}
+
+.search-input,
+.search-button {
+  height: 40px; /* Same as the height of your icons */
+}
+.search-input {
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 100%; /* Full width of the parent */
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #ccc; /* Lighter text for placeholder */
+}
+
+.search-button {
+  outline: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #fff; /* Text color */
+  /* padding: 0px 15px; Padding inside the button */
+}
+
+/* Profile dropdown styles */
+.profile-dropdown-container {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  top: 100%;
+  z-index: 1000; /* Ensure dropdown is above other elements */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+/* No background color on hover for links and dropdown */
+.nav-link:hover,
+.dropdown-item:hover,
+.profile-button:hover {
+  background-color: transparent;
+}
+
+/* Profile button adjustments */
+.profile-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Icon size adjustments */
+.nav-icon {
+  height: 30px; /* Smaller icons */
+  width: 30px; /* Keep square aspect ratio */
+}

@@ -1,0 +1,196 @@
+.interactive-grid {
+  /* This will now only apply padding and background */
+  padding: 40px;
+  background-image: linear-gradient(
+    to right,
+    #040c0e,
+    #0c1517,
+    #111b1e,
+    #142226,
+    #17292e,
+    #17292e,
+    #17292e,
+    #17292e,
+    #142226,
+    #111b1e,
+    #0c1517,
+    #040c0e
+  );
+}
+
+.interactive-grid-heading {
+  /* This aligns the heading to the start */
+  text-align: center;
+  color: #dca36e;
+  padding-left: 40px; /* Aligns with the grid items */
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #dca36e; /* Color of the title */
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 0;
+  text-transform: none;
+
+  /* Text glow effect */
+  text-shadow: 0 0 8px rgba(220, 163, 110, 0.5);
+}
+
+.interactive-grid-container {
+  width: 100%; /* Full width to contain the grid */
+  max-width: 1200px; /* Max width can be adjusted */
+  margin: 0 auto; /* This centers the grid in the parent */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 60px; /* Space between cards */
+  /* Remove padding if it's not needed, or adjust as necessary */
+}
+
+.grid-item {
+  width: 300px; /* Set the width of the cards */
+  height: 350px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* Needed for hover effects */
+  animation: floating 3s ease-in-out infinite;
+  /* Additional styles for shine effect */
+  background-color: #ccc; /* Base color */
+}
+
+/* Before pseudo-element for the shine effect */
+.grid-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%; /* Increase the start position to delay the entrance */
+  width: 240%; /* Increase the width for a smoother transition across the item */
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 40%,
+    /* Less intense start */ rgba(255, 255, 255, 0.4) 50%,
+    /* Lower peak intensity */ rgba(255, 255, 255, 0) 60% /* Less intense end */
+  );
+  transform: skewX(-20deg);
+  z-index: 1;
+  animation: shine 3s infinite linear; /* Continuous animation */
+}
+
+.grid-item:hover {
+  color: #ffee10;
+  box-shadow: 0 0 40px #ffee10, 0 0 40px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
+}
+
+/* Glow effect on hover */
+.grid-item:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(222, 163, 110, 0.4) 0%,
+    rgba(222, 163, 110, 0) 60%
+  );
+  opacity: 0; /* Start with glow hidden */
+  z-index: 2;
+  animation: glow-on-hover 0.5s forwards; /* Trigger this animation on hover */
+}
+
+/* Glow animation on hover */
+@keyframes glow-on-hover {
+  to {
+    opacity: 1; /* Show the glow at the end of the animation */
+  }
+}
+
+/* Staggered effect */
+/* First row */
+.grid-item:nth-child(1) {
+  margin-top: 0;
+}
+.grid-item:nth-child(2) {
+  margin-top: 100px;
+}
+.grid-item:nth-child(3) {
+  margin-top: 0;
+}
+
+/* Second row */
+.grid-item:nth-child(4) {
+  margin-top: 1px;
+}
+.grid-item:nth-child(5) {
+  margin-top: 100px;
+}
+.grid-item:nth-child(6) {
+  margin-top: 1px;
+}
+
+/* Third row, continue the pattern */
+.grid-item:nth-child(7) {
+  margin-top: 0;
+}
+.grid-item:nth-child(8) {
+  margin-top: 100px;
+}
+.grid-item:nth-child(9) {
+  margin-top: 0;
+}
+
+/* Background images for genres */
+.genre-image {
+  width: 300px;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for genre names */
+.genre-name {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 1.8em; /* Increase the font size */
+  font-weight: bold;
+  color: #dca36e;
+  background-color: rgb(0, 0, 0, 0.5);
+  padding: 10px 0;
+}
+
+/* Hover effects for each genre */
+.grid-item:hover .genre-action {
+  animation: flameEffect 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes flameEffect {
+  0% {
+    background-color: rgba(255, 165, 0, 0.6);
+  }
+  100% {
+    background-color: rgba(255, 140, 0, 0.6);
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

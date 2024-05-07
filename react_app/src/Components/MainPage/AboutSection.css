@@ -1,0 +1,92 @@
+.about-container {
+  display: flex;
+  height: 100vh;
+  align-items: center; /* Centers the content vertically */
+  justify-content: space-around; /* Gives space around the items */
+  background-image: linear-gradient(
+    to right,
+    #040c0e,
+    #0c1517,
+    #111b1e,
+    #142226,
+    #17292e,
+    #17292e,
+    #17292e,
+    #17292e,
+    #142226,
+    #111b1e,
+    #0c1517,
+    #040c0e
+  );
+}
+
+.about-heading {
+  font-size: 3rem; /* Adjust the size as necessary */
+  color: rgb(82, 91, 86); /* White color, adjust if needed */
+  margin-bottom: 1rem; /* Spacing between the heading and the first paragraph */
+  text-align: center; /* Align to the left */
+  font-weight: bolder;
+  /* Add any additional styles you want for the heading here */
+}
+
+.about-text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the start of the flex container */
+  flex-basis: 50%; /* Takes up half the container's width */
+  padding: 0 2rem; /* Adds some padding around the text */
+  color: #dca36e;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: small;
+  font-weight: lighter;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-basis: 50%;
+  /* Remove background styles if setting an image inside a img tag */
+  /* background: url("/Images/About Us.jpg") center/cover no-repeat; */
+  /* Add a border-radius to make it circular */
+  border-radius: 50%;
+  overflow: hidden; /* This ensures the circle shape is maintained */
+  /* Specify the size of the image, adjust as necessary */
+  width: 500px; /* Adjust to the size you want */
+  height: 500px; /* Should match the width for a perfect circle */
+}
+
+/* If you want to use an img tag instead of background */
+.about-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Adjusts the size of the image within its container */
+}
+
+.about-line {
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: all 0.6s ease-out;
+}
+
+.about-line.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* You can use :nth-child to add a delay for each line */
+.about-container h2:nth-child(1).slide-in {
+  transition-delay: 0.3s; /* Adjust the time as needed */
+}
+
+.about-container h2:nth-child(2).slide-in {
+  transition-delay: 0.6s; /* Adjust the time as needed */
+}
+
+.about-container h2:nth-child(3).slide-in {
+  transition-delay: 0.9s; /* Adjust the time as needed */
+}

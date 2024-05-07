@@ -1,0 +1,254 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  /* background-color: #222; This color would be dynamically set based on the movie poster */
+}
+
+body,
+.movie-info,
+.movie-title,
+.movie-description {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Example font */
+  color: #525b56; /* Primary text color */
+}
+.movie-title {
+  color: #dca36e; /* Specific color for titles */
+}
+
+.movie-description-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 50px;
+  background: linear-gradient(
+    to right,
+    #040c0e,
+    #0c1517,
+    #111b1e,
+    #142226,
+    #17292e,
+    #17292e,
+    #17292e,
+    #17292e,
+    #142226,
+    #111b1e,
+    #0c1517,
+    #040c0e
+  );
+}
+
+.movie-poster-desc {
+  flex: 1; /* Assign flex grow */
+  height: 100%; /* Control the height of the poster */
+  background: url("${movie.working_poster_url}") center center / contain
+    no-repeat;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.movie-header {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 2em;
+  opacity: 12;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.movie-title-vertical {
+  writing-mode: vertical-rl;
+  flex: none;
+  font-size: 5em;
+  color: #dca36e; /* Specific color for titles */
+  position: fixed; /* Changed from absolute to fixed */
+  top: 50%;
+  left: 0; /* Align to the left side */
+  transform: translate(0, -50%) rotate(180deg); /* Adjust for centering */
+  z-index: 10; /* Make sure it's above other elements */
+  padding: 80px;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.movie-content {
+  flex: 2;
+  margin-left: auto; /* Make room for the vertical title */
+  display: flex;
+  margin-right: 7%;
+  max-width: 600px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  color: #dca36e;
+}
+
+/* Movie info and interaction buttons */
+.movie-info {
+  align-self: center; /* Align self for automatic margins */
+  max-width: 600px;
+  text-align: left; /* Align text to the left */
+  color: #dca36e;
+}
+
+.movie-title-desc {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.movie-description {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: #dca36e;
+}
+
+.movie-genres {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.genre-bubble {
+  font-size: 1.3rem; /* Increase the font size */
+  font-weight: bold;
+  padding: 10px 20px; /* Increase the padding to make the bubble larger */
+  margin: 0 10px; /* Add some space between bubbles */
+  border-radius: 30px; /* Optional: Adjust as needed for desired rounded corners */
+  background: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.user-interactions {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  justify-content: center; /* Centers the buttons in the flex container */
+  gap: 10px; /* Provides space between buttons */
+}
+
+.user-interactions button {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  height: 100px;
+  color: #dca36e; /* Set the font color to your theme's color */
+  border-radius: 20px; /* Adjust for desired roundness */
+  padding: 5px 10px; /* Adjust padding to fit the content */
+  font-size: 15px; /* Set the font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  white-space: nowrap; /* Keep the button label on one line */
+  flex: 0 1 auto; /* Flex settings allow for wrapping and flexible widths */
+  margin: 5px; /* Provide some spacing between buttons */
+}
+
+/* Media query for larger screens to set a fixed width for the buttons */
+@media (min-width: 600px) {
+  .user-interactions button {
+    flex: 1 1 auto; /* Buttons will grow to fill the space */
+    max-width: calc(50% - 20px); /* Adjust width for 2 buttons in a row */
+  }
+}
+
+@media (min-width: 900px) {
+  .user-interactions button {
+    max-width: calc(33.333% - 20px); /* Adjust width for 3 buttons in a row */
+  }
+}
+
+.user-interactions button:hover,
+.user-interactions button:active {
+  background-color: #dca36e; /* Color for hover and active states */
+  color: #222; /* Text color for hover and active states */
+}
+
+.user-interactions button.selected {
+  background-color: #dca36e; /* Fill color when selected */
+  color: white; /* Text color when selected */
+  border-color: rgba(255, 255, 255, 0.5); /* Brighter border when selected */
+}
+
+.movie-cast {
+  font-weight: bold;
+}
+.cast-list {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow-x: auto; /* Allows horizontal scrolling */
+  padding: 10px 0; /* Padding to ensure content isn't obscured */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  scroll-snap-type: x mandatory; /* Enable snap scrolling on the x-axis */
+  font-size: 20px;
+}
+
+/* Hide scrollbar for Chrome, Safari */
+.cast-list::-webkit-scrollbar {
+  display: none;
+}
+
+.cast-member {
+  flex: none; /* Do not grow or shrink */
+  margin-right: 20px;
+  scroll-snap-align: start; /* Align to the start of the scroll container */
+  text-align: center;
+}
+
+.cast-member img,
+.director-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .movie-description-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-title-vertical {
+    position: static;
+    writing-mode: horizontal-tb;
+    transform: rotate(0);
+    font-size: 1.5em;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .movie-content {
+    justify-content: center;
+    padding: 0 20px;
+    margin-left: 0;
+  }
+
+  .movie-info,
+  .movie-genres,
+  .user-interactions {
+    text-align: center;
+  }
+
+  .movie-genres,
+  .user-interactions {
+    justify-content: center;
+  }
+
+  .genre-bubble,
+  .user-interactions button {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}

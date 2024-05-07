@@ -1,0 +1,104 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 20px;
+  background-color: #525b56;
+  color: #dca36e;
+}
+
+.footer-division {
+  flex: 1;
+  padding: 10px;
+  flex-basis: 250px;
+}
+
+.footer-logo {
+  max-width: 100px; /* Adjust as needed */
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.footer-division h3,
+.footer-division h4 {
+  margin: 10px 0;
+}
+
+.footer-division p,
+.footer-division li {
+  margin: 5px 0;
+}
+
+.footer-division ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-division li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-division li:hover {
+  color: #17292e;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon-facebook:hover {
+  background-color: #3b5998;
+}
+.icon-instagram:hover {
+  background-color: #e4405f;
+}
+.icon-twitter:hover {
+  background-color: #55acee;
+}
+.icon-youtube:hover {
+  background-color: #cd201f;
+}
+
+/* Example icons fill effect on hover - Adjust according to your icons */
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Contact info icons */
+.icon-phone::before {
+  content: "\f095"; /* Unicode for FontAwesome phone icon */
+  font-family: "Font Awesome 5 Free"; /* Specify the icon font family */
+  font-weight: 900; /* Required for some FontAwesome icons */
+}
+
+.icon-email::before {
+  content: "\f0e0"; /* Unicode for FontAwesome envelope icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.icon-address::before {
+  content: "\f015"; /* Unicode for FontAwesome home icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-division {
+    margin-bottom: 20px;
+  }
+}

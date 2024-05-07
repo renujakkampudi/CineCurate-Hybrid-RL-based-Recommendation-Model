@@ -1,0 +1,71 @@
+/* Parent container for both the carousel and the blocks */
+.home-container-div {
+  position: relative; /* This establishes the positioning context */
+  height: 100vh; /* Give it a height to ensure there's space for absolute children */
+}
+
+.blocks-container {
+  position: absolute;
+  top: 30vh; /* Adjust this value based on your header's size */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row; /* Align horizontally */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center;
+  align-items: flex-start; /* Align items to the start */
+  z-index: 3; /* Above the carousel image */
+  width: 100%; /* Use full width */
+  gap: 1rem; /* Space between cards */
+  padding: 1rem; /* Padding around the content */
+}
+
+.home-movie-section .home-movie-list {
+  width: 100%; /* Full width to align with the container */
+  display: flex;
+  flex-direction: row; /* Align horizontally */
+  justify-content: center; /* Center the items horizontally */
+  gap: 1rem; /* Space between cards */
+}
+
+/* Style for both genres and languages to increase size and consistent layout */
+.home-movie-section.genres .home-movie-list,
+.home-movie-section.languages .home-movie-list {
+  width: 100%; /* Full width to align with the container */
+  display: flex;
+  flex-direction: row; /* Align horizontally */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center; /* Center the items if they don't fill the full width */
+  gap: 1rem; /* Space between cards */
+}
+
+.home-movie-section {
+  width: 100%; /* Full width of the blocks-container */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between the cards */
+}
+
+/* Common card styles, applied to individual genre and language cards */
+.home-movie-card {
+  flex: 0 0 22%; /* Cards take up roughly 22% of the container width */
+  max-width: 22%; /* Max width to match flex-basis */
+  background-color: #17292e; /* Example background color */
+  color: white; /* Text color */
+  margin: 0.5rem; /* Margin around cards */
+  padding: 1rem; /* Padding inside cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  cursor: pointer; /* Pointer to indicate clickable */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions for hover effects */
+  text-align: center; /* Center text */
+  border-radius: 5px; /* Slightly rounded corners for cards */
+  opacity: 0.9;
+}
+
+/* Hover effect for cards */
+.home-movie-card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: #dca36e; /* Light background on hover */
+  color: black; /* Text color on hover */
+}
